@@ -11,7 +11,7 @@ import pickle
 import os
 from datetime import datetime
 import clip
-import openai
+#import openai
 
 # No domain randomization
 transform = transforms.Compose([transforms.ToTensor()])
@@ -46,8 +46,8 @@ def vis_gauss(gaussians, img, text):
 
 class LanguageKeypointsDataset(Dataset):
     def __init__(self, num_keypoints, img_folder, kpts_folder, text_folder, img_height, img_width, transform, multimodal=False, gauss_sigma=8):
-        openai_api_key = "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" 
-        openai.api_key = openai_api_key
+        #openai_api_key = "" 
+        #openai.api_key = openai_api_key
         self.clip_model, self.clip_preprocess = clip.load("ViT-B/32")
         self.clip_model.cuda().eval()
 
