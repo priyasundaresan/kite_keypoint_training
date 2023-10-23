@@ -1,4 +1,5 @@
-# KITE: Keypoint-Conditioned Policies for Semantic Manipulation [Keypoint Training Repo]
+# KITE: Keypoint-Conditioned Policies for Semantic Manipulation
+## [Keypoint Training Repo]
 
 *Priya Sundaresan, Suneel Belkhale, Dorsa Sadigh, Jeannette Bohg*
 
@@ -17,11 +18,11 @@ git clone https://github.com/priyasundaresan/kite_keypoint_training.git
 ```
 * Go to the `docker` directory:
 ```
-cd /path/to/kite_keypoint_training/docker`
+cd /path/to/kite_keypoint_training/docker
 ```
 * Build the Docker image to install all dependencies:
 ```
-./docker_build.py`
+./docker_build.py
 ```
 * After this step, run `docker images` to confirm that the image has built. You should see the following:
 ```
