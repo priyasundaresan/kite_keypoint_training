@@ -22,7 +22,7 @@ def forward(sample_batched, model):
     loss = nn.BCELoss()(pred_gauss, gt_gauss)
     return loss
 
-def fit(train_data, test_data, model, epochs, checkpoint_path = ''):
+def train(train_data, test_data, model, epochs, checkpoint_path = ''):
     best_loss = float('inf')
     for epoch in range(epochs):
 
@@ -83,4 +83,4 @@ model = CLIPLingUNet((IMG_HEIGHT, IMG_WIDTH, 3), NUM_KEYPOINTS, cfg, 'cuda:0', N
 
 # optimizer
 optimizer = optim.Adam(model.parameters(), lr=1.0e-4, weight_decay=1.0e-4)
-fit(train_data, test_data, model, epochs=epochs, checkpoint_path=save_dir)
+train(train_data, test_data, model, epochs=epochs, checkpoint_path=save_dir)
