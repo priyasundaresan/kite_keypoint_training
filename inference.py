@@ -36,7 +36,7 @@ if not os.path.exists('preds'):
 
 workers=0
 dataset_dir = '%s'%dataset_dir
-dataset = LanguageKeypointsDataset(1, '/host/data/%s_test/images'%dataset_dir, '/host/data/%s_test/keypoints'%dataset_dir, '/host/data/%s_test/lang'%dataset_dir, IMG_HEIGHT, IMG_WIDTH, transform, multimodal=True, gauss_sigma=GAUSS_SIGMA)
+dataset = LanguageKeypointsDataset(1, 'data/%s_test/images'%dataset_dir, 'data/%s_test/keypoints'%dataset_dir, 'data/%s_test/lang'%dataset_dir, IMG_HEIGHT, IMG_WIDTH, transform, multimodal=True, gauss_sigma=GAUSS_SIGMA)
 data = DataLoader(dataset, batch_size=batch_size, shuffle=False, num_workers=workers)
 
 for i, (img, gt_gauss, text, img_np) in enumerate(data):

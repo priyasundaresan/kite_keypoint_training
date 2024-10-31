@@ -65,10 +65,10 @@ if not os.path.exists(output_dir):
 if not os.path.exists(save_dir):
     os.mkdir(save_dir)
 
-train_dataset = LanguageKeypointsDataset(NUM_KEYPOINTS, '/host/data/%s/images'%dataset_dir, '/host/data/%s/keypoints'%dataset_dir, '/host/data/%s/lang'%dataset_dir, IMG_HEIGHT, IMG_WIDTH, transform, multimodal=False, gauss_sigma=GAUSS_SIGMA)
+train_dataset = LanguageKeypointsDataset(NUM_KEYPOINTS, 'data/%s/images'%dataset_dir, 'data/%s/keypoints'%dataset_dir, 'data/%s/lang'%dataset_dir, IMG_HEIGHT, IMG_WIDTH, transform, multimodal=False, gauss_sigma=GAUSS_SIGMA)
 train_data = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=workers)
 
-test_dataset = LanguageKeypointsDataset(NUM_KEYPOINTS, '/host/data/%s_test/images'%dataset_dir, '/host/data/%s/keypoints'%dataset_dir, '/host/data/%s/lang'%dataset_dir, IMG_HEIGHT, IMG_WIDTH, transform, multimodal=False, gauss_sigma=GAUSS_SIGMA)
+test_dataset = LanguageKeypointsDataset(NUM_KEYPOINTS, 'data/%s_test/images'%dataset_dir, 'data/%s/keypoints'%dataset_dir, 'data/%s/lang'%dataset_dir, IMG_HEIGHT, IMG_WIDTH, transform, multimodal=False, gauss_sigma=GAUSS_SIGMA)
 test_data = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=workers)
 
 use_cuda = torch.cuda.is_available()
