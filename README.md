@@ -16,7 +16,7 @@
 ```
 git clone https://github.com/priyasundaresan/kite_keypoint_training.git
 ```
-* Create a conda environment (`conda env create -f env.yml`):
+* Create a conda environment, either via `conda env create -f env.yml` or via the following:
 ```
 conda create -n kite python=3.10
 conda activate kite
@@ -26,9 +26,11 @@ pip install ftfy
 pip install regex
 pip install opencv-python
 pip install git+https://github.com/openai/CLIP.git
+pip install matplotlib
 ```
 
 ## Training and Inference
+* Copy the data from `/iliad/u/priyasun/kite_keypoint_training/data` to your repo
 * Run the following to train on the example `semantic_grasping_dset` dataset:
 ```
 python train.py
