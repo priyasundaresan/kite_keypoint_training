@@ -16,33 +16,25 @@
 ```
 git clone https://github.com/priyasundaresan/kite_keypoint_training.git
 ```
-* Go to the `docker` directory:
+* Create a conda environment (`conda env create -f env.yml`):
 ```
-cd /path/to/kite_keypoint_training/docker
-```
-* Build the Docker image to install all dependencies:
-```
-./docker_build.py
-```
-* After this step, run `docker images` to confirm that the image has built. You should see the following:
-```
-REPOSITORY            TAG       IMAGE ID       CREATED       SIZE
-lang-manip-training   latest    bf3a316e74c5   10 minutes ago   4.14GB
+conda create -n kite python=3.10
+conda activate kite
+pip install torch==2.4.0+cu121 torchvision==0.19.0+cu121 --extra-index-url https://download.pytorch.org/whl/cu121
+pip install tqdm
+pip install ftfy
+pip install regex
+pip install opencv-python
+pip install git+https://github.com/openai/CLIP.git
 ```
 
 ## Training and Inference
-* Go to the `docker` directory and launch a container:
-```
-cd /path/to/kite_keypoint_training/docker
-./docker_run.py
-```
-* You should now be inside the Docker container. Run the following to train on the example `semantic_grasping_dset` dataset:
+* Run the following to train on the example `semantic_grasping_dset` dataset:
 ```
 python train.py
 ```
 * After training, run the following to visualize predictions
 ```
-python analysis.py
+python inference.py
 ```
-* This will save heatmap visualizations to the folder `preds`
-* Run `Ctrl A+D` to exit the container
+* This will save keypoint heatmap visualizations to the folder `preds`
