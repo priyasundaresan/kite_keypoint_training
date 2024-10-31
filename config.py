@@ -1,6 +1,9 @@
 NUM_KEYPOINTS = 1
 IMG_HEIGHT  = 480
 IMG_WIDTH   = 480
-GAUSS_SIGMA = 6
+GAUSS_SIGMA = 6 # "radius" of a keypoint in px. in the heatmap
 epochs = 25
-batch_size = 1
+batch_size = 1 # can increase this 
+workers=0
+dataset_dir = 'semantic_grasping_dset'
+output_dir = 'checkpoints'
